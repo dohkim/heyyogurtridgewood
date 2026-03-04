@@ -138,29 +138,27 @@
         }
         .promo-btns {
             display: flex;
-            gap: 12px;
+            gap: 32px;
             flex-wrap: wrap;
+            align-items: flex-start;
         }
-        .btn-order {
-            display: inline-flex;
+        .promo-btns a {
+            display: flex;
+            flex-direction: column;
             align-items: center;
             gap: 8px;
-            padding: 14px 24px;
-            font-size: 0.95rem;
-            font-weight: 600;
-            border-radius: 10px;
-            transition: all 0.25s;
+            text-decoration: none;
+            color: var(--charcoal);
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: transform 0.25s;
         }
-        .btn-uber {
-            background: #000;
-            color: white;
+        .promo-btns a:hover { transform: translateY(-4px); }
+        .promo-btns img {
+            width: 48px;
+            height: 48px;
+            display: block;
         }
-        .btn-uber:hover { opacity: 0.85; transform: translateY(-2px); }
-        .btn-doordash {
-            background: #ff3008;
-            color: white;
-        }
-        .btn-doordash:hover { opacity: 0.9; transform: translateY(-2px); }
         .btn {
             display: inline-block;
             padding: 14px 32px;
@@ -384,8 +382,14 @@
             <h2>Buy One Get One Free</h2>
             <p>First-time customers get BOGO! Order through Uber Eats or DoorDash and enjoy a free yogurt drink on your first order.</p>
             <div class="promo-btns">
-                <a href="https://www.ubereats.com/store/hey-yogurt-ridgewood-nj/Pzyog4v2XDq9NZrWIvRG9g" class="btn-order btn-uber" target="_blank" rel="noopener">Uber Eats</a>
-                <a href="https://www.doordash.com/store/hey-yogurt-ridgewood-27920822/34125151/?event_type=autocomplete&pickup=false" class="btn-order btn-doordash" target="_blank" rel="noopener">DoorDash</a>
+                <a href="https://www.ubereats.com/store/hey-yogurt-ridgewood-nj/Pzyog4v2XDq9NZrWIvRG9g?diningMode=DELIVERY&pl=JTdCJTIyYWRkcmVzcyUyMiUzQSUyMjgwJTIwRSUyMFJpZGdld29vZCUyMEF2ZSUyMiUyQyUyMnJlZmVyZW5jZSUyMiUzQSUyMmhlcmUlM0FhZiUzQXN0cmVldHNlY3Rpb24lM0F4U2F2bGJHNVlyUHFsZld5T3plcVlDJTNBQ2djSUJDQ0F0TElmRUFFYUFqZ3clMjIlMkMlMjJyZWZlcmVuY2VUeXBlJTIyJTNBJTIyaGVyZV9wbGFjZXMlMjIlMkMlMjJsYXRpdHVkZSUyMiUzQTQwLjk3OTM3JTJDJTIybG9uZ2l0dWRlJTIyJTNBLTc0LjExODU4JTdE" target="_blank" rel="noopener" title="Order on Uber Eats">
+                    <img src="https://cdn.simpleicons.org/ubereats/000000" alt="">
+                    <span>Uber Eats</span>
+                </a>
+                <a href="https://www.doordash.com/store/hey-yogurt-ridgewood-27920822/34125151/?event_type=autocomplete&pickup=false" target="_blank" rel="noopener" title="Order on DoorDash">
+                    <img src="https://cdn.simpleicons.org/doordash/FF3008" alt="">
+                    <span>DoorDash</span>
+                </a>
             </div>
         </div>
     </div>
@@ -396,13 +400,13 @@
     <div class="menu-grid">
         <div class="menu-card">
             <img src="https://static.wixstatic.com/media/373ad7_15f172c864974127878e8bd7c3d78021~mv2.jpg/v1/fill/w_440,h_440,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/STRAWBERRY%20%26%20MANGO_320X320.jpg" alt="Strawberry & Mango Yogurt" class="menu-card-img">
-            <h3>Strawberry & Mango</h3>
+            <h3>Strawberry Mango Yogurt</h3>
             <p>Our most loved sweet and tangy fruit yogurt.</p>
         </div>
         <div class="menu-card">
-            <img src="https://static.wixstatic.com/media/373ad7_18b10ec556684d1fafe73c4760c6c79b~mv2.jpg/v1/fill/w_440,h_440,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/redbean_320x320.jpg" alt="Purple Rice Yogurt" class="menu-card-img">
-            <h3>Purple Rice Yogurt</h3>
-            <p>Our signature drink with a satisfying, chewy texture.</p>
+            <img src="https://static.wixstatic.com/media/373ad7_f83be5062b7a4313a46f87b127cd7c7e~mv2.jpg/v1/fill/w_440,h_440,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/oreo_320x320.jpg" alt="Oreo Yogurt" class="menu-card-img">
+            <h3>Oreo Yogurt</h3>
+            <p>Crunchy Oreo pieces blended with creamy yogurt for a classic favorite.</p>
         </div>
         <div class="menu-card">
             <img src="https://static.wixstatic.com/media/373ad7_0c13f1d9cd214977a6e07534fb9be792~mv2.jpg/v1/crop/x_0,y_74,w_3095,h_2947/fill/w_460,h_438,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/matcha%20strawberry_mix.jpg" alt="Matcha Yogurt" class="menu-card-img">
