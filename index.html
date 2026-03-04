@@ -73,78 +73,132 @@
             align-items: center;
             justify-content: center;
             padding: 120px 24px 80px;
-            background: linear-gradient(180deg, rgba(45,42,38,0.5) 0%, rgba(45,42,38,0.3) 50%, var(--cream) 100%),
-                url('https://static.wixstatic.com/media/373ad7_273c183062b741b9b6436710b96890d9%7Emv2.jpg/v1/fit/w_2500,h_1330,al_c/373ad7_273c183062b741b9b6436710b96890d9%7Emv2.jpg') center/cover no-repeat;
+            background: linear-gradient(165deg, #eef5ef 0%, #f8faf8 50%, var(--cream) 100%);
             text-align: center;
         }
         .hero-inner { max-width: 640px; }
+        .hero-main { margin-bottom: 40px; }
         .hero h1 {
-            font-size: clamp(2.5rem, 6vw, 4rem);
-            line-height: 1.15;
-            color: var(--cream);
-            margin-bottom: 20px;
+            font-size: clamp(2.25rem, 5vw, 3.5rem);
+            line-height: 1.2;
+            color: var(--charcoal);
+            margin-bottom: 16px;
             letter-spacing: -0.02em;
-            text-shadow: 0 2px 16px rgba(0,0,0,0.5);
         }
         .hero p {
-            font-size: 1.15rem;
-            color: rgba(250,246,242,0.95);
-            margin-bottom: 36px;
-            max-width: 480px;
+            font-size: 1.1rem;
+            color: var(--muted);
+            margin-bottom: 28px;
+            max-width: 440px;
             margin-left: auto;
             margin-right: auto;
-            text-shadow: 0 2px 12px rgba(0,0,0,0.4);
         }
+
+        /* Promo / Order section */
+        .promo {
+            padding: 60px 24px;
+            background: white;
+        }
+        .promo-wrap {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: center;
+            gap: 48px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        .promo-video {
+            flex: 1;
+            min-width: 240px;
+            max-width: 320px;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 6px 24px rgba(0,0,0,0.1);
+        }
+        .promo-video video {
+            width: 100%;
+            display: block;
+        }
+        .promo-content {
+            flex: 1;
+            min-width: 280px;
+            max-width: 420px;
+        }
+        .promo-content h2 {
+            font-size: 1.75rem;
+            color: var(--charcoal);
+            margin-bottom: 16px;
+            line-height: 1.3;
+        }
+        .promo-content p {
+            color: var(--muted);
+            margin-bottom: 24px;
+            font-size: 1.05rem;
+        }
+        .promo-btns {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+        .btn-order {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 14px 24px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            border-radius: 10px;
+            transition: all 0.25s;
+        }
+        .btn-uber {
+            background: #000;
+            color: white;
+        }
+        .btn-uber:hover { opacity: 0.85; transform: translateY(-2px); }
+        .btn-doordash {
+            background: #ff3008;
+            color: white;
+        }
+        .btn-doordash:hover { opacity: 0.9; transform: translateY(-2px); }
         .btn {
             display: inline-block;
-            padding: 16px 36px;
-            font-size: 1rem;
+            padding: 14px 32px;
+            font-size: 0.95rem;
             font-weight: 600;
-            border-radius: 8px;
+            border-radius: 10px;
             transition: all 0.25s;
         }
         .btn-primary {
-            background: var(--terracotta);
+            background: var(--sage);
             color: white;
-            box-shadow: 0 4px 20px rgba(199, 107, 90, 0.35);
+            box-shadow: 0 4px 16px rgba(107,143,113,0.3);
         }
         .btn-primary:hover {
-            background: #b85a4a;
+            background: var(--sage-light);
             transform: translateY(-2px);
-            box-shadow: 0 8px 28px rgba(199, 107, 90, 0.4);
+            box-shadow: 0 6px 24px rgba(107,143,113,0.35);
         }
-
-        /* Benefits */
-        .benefits {
-            padding: 100px 24px;
-            background: var(--charcoal);
-            color: var(--cream);
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
-        .benefits::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: url('https://static.wixstatic.com/media/373ad7_0868078b7fc741af97582faae20e2bec~mv2.png/v1/fill/w_374,h_628,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/373ad7_0868078b7fc741af97582faae20e2bec~mv2.png') center/cover no-repeat;
-            opacity: 0.12;
-        }
-        .benefits > div { position: relative; z-index: 1; }
-        .benefits h2 {
-            font-size: 1.75rem;
-            color: var(--sage-light);
-            margin-bottom: 16px;
-        }
-        .benefits p {
-            max-width: 560px;
+        .hero-benefits {
+            background: white;
+            padding: 24px 32px;
+            border-radius: 12px;
+            max-width: 520px;
             margin: 0 auto;
+            box-shadow: 0 4px 24px rgba(0,0,0,0.06);
+            border: 1px solid rgba(107,143,113,0.2);
+        }
+        .hero-benefits h3 {
             font-size: 1.1rem;
-            line-height: 1.75;
-            color: rgba(250, 246, 242, 0.85);
+            color: var(--sage);
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+        .hero-benefits p {
+            font-size: 0.95rem;
+            color: var(--muted);
+            margin: 0;
+            line-height: 1.6;
         }
 
         /* Menu */
@@ -214,71 +268,57 @@
         .reviews-sub {
             text-align: center;
             color: var(--muted);
-            margin-bottom: 48px;
-        }
-        .reviews-cta {
-            display: flex;
-            justify-content: center;
-            gap: 16px;
-            flex-wrap: wrap;
-            margin-bottom: 48px;
-        }
-        .btn-google {
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            padding: 14px 28px;
-            background: white;
-            color: var(--charcoal);
-            border: 2px solid #e0e0e0;
-            border-radius: 8px;
-            font-weight: 600;
-            font-size: 0.95rem;
-            transition: all 0.25s;
-        }
-        .btn-google:hover {
-            border-color: var(--sage);
-            color: var(--sage);
-            box-shadow: 0 4px 16px rgba(0,0,0,0.08);
-        }
-        .btn-google svg { width: 20px; height: 20px; }
-        .reviews-map-wrap {
-            max-width: 600px;
-            margin: 0 auto 48px;
-            border-radius: 16px;
-            overflow: hidden;
-            box-shadow: 0 8px 32px rgba(0,0,0,0.1);
-        }
-        .reviews-map-wrap iframe {
-            width: 100%;
-            height: 300px;
-            border: 0;
-            display: block;
+            margin-bottom: 32px;
         }
         .reviews-widget {
             max-width: 900px;
             margin: 0 auto;
-            min-height: 200px;
+            min-height: 180px;
         }
 
         /* Location */
         .location {
             padding: 100px 24px;
             background: var(--sand);
-            text-align: center;
         }
         .location h2 {
             font-size: 2rem;
+            text-align: center;
             color: var(--charcoal);
             margin-bottom: 40px;
         }
-        .location-card {
-            max-width: 420px;
+        .location-wrap {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: stretch;
+            gap: 32px;
+            max-width: 900px;
             margin: 0 auto;
+        }
+        .location-map {
+            flex: 1;
+            min-width: 280px;
+            max-width: 480px;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+        }
+        .location-map iframe {
+            width: 100%;
+            height: 320px;
+            border: 0;
+            display: block;
+        }
+        .location-card {
+            flex: 1;
+            min-width: 280px;
+            max-width: 380px;
             background: white;
             padding: 40px 36px;
             border-radius: 16px;
             box-shadow: 0 8px 32px rgba(0,0,0,0.06);
+            text-align: center;
         }
         .location-card p {
             font-size: 1rem;
@@ -315,7 +355,6 @@
     </a>
     <div class="nav-links">
         <a href="#hero">Home</a>
-        <a href="#benefits">Benefits</a>
         <a href="#menu">Menu</a>
         <a href="#reviews">Reviews</a>
         <a href="#location">Location</a>
@@ -324,16 +363,31 @@
 
 <section id="hero" class="hero">
     <div class="hero-inner">
-        <h1>Fresh & Healthy Drinkable Yogurt</h1>
-        <p>Premium handmade yogurt and desserts in Ridgewood. Visit our store today and enjoy the freshness!</p>
-        <a href="https://maps.google.com/?q=80+E+Ridgewood+Ave,+Ridgewood,+NJ+07450" class="btn btn-primary" target="_blank">Get Directions</a>
+        <div class="hero-main">
+            <h1>Fresh & Healthy Drinkable Yogurt</h1>
+            <p>Discover Hey Yogurt, your go-to spot for rich and creamy yogurt drinks with fresh fruit.</p>
+            <a href="https://maps.app.goo.gl/Na51MZi5mCHqyzmc6" class="btn btn-primary" target="_blank">Get Directions</a>
+        </div>
+        <div class="hero-benefits">
+            <h3>Drink to Your Health: Probiotics</h3>
+            <p>Regular consumption of our fresh fruit and yogurt helps improve gut health and boost immunity. Experience a healthy and delicious cup every day!</p>
+        </div>
     </div>
 </section>
 
-<section id="benefits" class="benefits">
-    <div>
-        <h2>Drink to Your Health: Probiotics</h2>
-        <p>Regular consumption of our fresh fruit and yogurt helps improve gut health and boost immunity. Experience a healthy and delicious cup every day!</p>
+<section class="promo">
+    <div class="promo-wrap">
+        <div class="promo-video">
+            <video autoplay muted loop playsinline src="videoplayback.mp4"></video>
+        </div>
+        <div class="promo-content">
+            <h2>Buy One Get One Free</h2>
+            <p>First-time customers get BOGO! Order through Uber Eats or DoorDash and enjoy a free yogurt drink on your first order.</p>
+            <div class="promo-btns">
+                <a href="https://www.ubereats.com/store/hey-yogurt-ridgewood-nj/Pzyog4v2XDq9NZrWIvRG9g" class="btn-order btn-uber" target="_blank" rel="noopener">Uber Eats</a>
+                <a href="https://www.doordash.com/store/hey-yogurt-ridgewood-27920822/34125151/?event_type=autocomplete&pickup=false" class="btn-order btn-doordash" target="_blank" rel="noopener">DoorDash</a>
+            </div>
+        </div>
     </div>
 </section>
 
@@ -366,27 +420,22 @@
 <section id="reviews" class="reviews">
     <h2>What Our Customers Say</h2>
     <p class="reviews-sub">Real reviews and photos from Google</p>
-    <div class="reviews-cta">
-        <a href="https://www.google.com/maps/place/Hey+Yogurt+Ridgewood/@40.9795052,-74.1185982,17z/data=!3m1!4b1!4m6!3m5!1s0x89c2e5e9fc40f179:0x81c729a2d5a5cfc9!8m2!3d40.9795052!4d-74.1185982!16s%2Fg%2F11y2spd2_j?entry=ttu" class="btn-google" target="_blank" rel="noopener">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
-            View on Google Maps
-        </a>
-        <a href="https://www.google.com/maps/place/Hey+Yogurt+Ridgewood/@40.9795052,-74.1185982,17z/data=!3m1!4b1!4m6!3m5!1s0x89c2e5e9fc40f179:0x81c729a2d5a5cfc9!8m2!3d40.9795052!4d-74.1185982!16s%2Fg%2F11y2spd2_j?entry=ttu" class="btn btn-primary" target="_blank" rel="noopener">Reviews & Photos on Google</a>
-    </div>
-    <div class="reviews-map-wrap">
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3015.2475!2d-74.1185982!3d40.9795052!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c2e5e9fc40f179%3A0x81c729a2d5a5cfc9!2sHey%20Yogurt%20Ridgewood!5e0!3m2!1sen!2sus" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Hey Yogurt Ridgewood on Google Maps"></iframe>
-    </div>
     <div class="reviews-widget">
-        <p style="text-align:center;color:var(--muted);font-size:0.9rem;">To display live reviews & photos, add a free widget from <a href="https://embedsocial.com/free-google-reviews-widget/" target="_blank" rel="noopener" style="color:var(--sage);">EmbedSocial</a> or <a href="https://www.elfsight.com/google-reviews-widget/" target="_blank" rel="noopener" style="color:var(--sage);">Elfsight</a> — connect your Google Business and paste the embed code above.</p>
+        <div class="embedsocial-hashtag" data-ref="75c9a0b88e6e570b89790e5c933f981d1f87e76f" data-lazyload="no"></div>
     </div>
 </section>
 
 <section id="location" class="location">
     <h2>Location & Contact</h2>
-    <div class="location-card">
-        <p><strong>Address:</strong> 80 E Ridgewood Ave, Ridgewood, NJ 07450</p>
-        <p><strong>Phone:</strong> (201) 248-4136</p>
-        <a href="tel:2012484136" class="btn btn-call">Call Store</a>
+    <div class="location-wrap">
+        <div class="location-map">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3015.2475!2d-74.1185982!3d40.9795052!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c2e5e9fc40f179%3A0x81c729a2d5a5cfc9!2sHey%20Yogurt%20Ridgewood!5e0!3m2!1sen!2sus" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Hey Yogurt Ridgewood on Google Maps"></iframe>
+        </div>
+        <div class="location-card">
+            <p><strong>Address:</strong> 80 E Ridgewood Ave, Ridgewood, NJ 07450</p>
+            <p><strong>Phone:</strong> (201) 248-4136</p>
+            <a href="tel:2012484136" class="btn btn-call">Call Store</a>
+        </div>
     </div>
 </section>
 
@@ -394,5 +443,62 @@
     © 2026 Hey Yogurt Ridgewood
 </footer>
 
+<script>
+(function(d, s, id) {
+    var js;
+    if (d.getElementById(id)) {return;}
+    js = d.createElement(s);
+    js.id = id;
+    js.src = "https://embedsocial.com/cdn/ht.js";
+    d.getElementsByTagName("head")[0].appendChild(js);
+}(document, "script", "EmbedSocialHashtagScript"));
+
+(function() {
+    var koreanRegex = /[\uAC00-\uD7AF\u1100-\u11FF\u3130-\u318F]/;
+    var nameLikeRegex = /^[\uAC00-\uD7AF\u1100-\u11FF\u3130-\u318F\s·]+$/;
+    var REPLACE = 'Google User';
+
+    function hasKorean(str) { return koreanRegex.test(str || ''); }
+    function looksLikeName(str) {
+        if (!str || str.length > 20) return false;
+        return nameLikeRegex.test(str.trim());
+    }
+
+    function hideKoreanNames(root) {
+        if (!root) return;
+        var walker = document.createTreeWalker(root, NodeFilter.SHOW_ELEMENT);
+        var nodes = [];
+        while (walker.nextNode()) nodes.push(walker.currentNode);
+        nodes.forEach(function(el) {
+            var text = (el.textContent || '').trim();
+            if (text && looksLikeName(text) && el.children.length === 0) {
+                el.textContent = REPLACE;
+                el.dataset.hiddenName = '1';
+            }
+        });
+    }
+
+    function run() {
+        var container = document.querySelector('.reviews-widget, .embedsocial-hashtag');
+        if (!container) return;
+        container.querySelectorAll('*').forEach(function(el) {
+            if (el.dataset.hiddenName) return;
+            var txt = (el.textContent || '').trim();
+            if (txt && looksLikeName(txt) && !el.querySelector('*')) {
+                el.textContent = REPLACE;
+                el.dataset.hiddenName = '1';
+            }
+        });
+    }
+
+    var obs = new MutationObserver(function() { run(); });
+    var widget = document.querySelector('.reviews-widget');
+    if (widget) {
+        obs.observe(widget, { childList: true, subtree: true });
+        setTimeout(run, 2000);
+        setTimeout(run, 5000);
+    }
+})();
+</script>
 </body>
 </html>
