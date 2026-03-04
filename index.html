@@ -38,7 +38,7 @@
             top: 0;
             left: 0;
             right: 0;
-            z-index: 100;
+            z-index: 1002;
             padding: 20px 32px;
             display: flex;
             justify-content: space-between;
@@ -65,6 +65,63 @@
             transition: color 0.2s;
         }
         .nav-links a:hover { color: var(--terracotta); }
+
+        /* Mobile menu */
+        .nav-toggle {
+            display: none;
+            background: none;
+            border: none;
+            padding: 8px;
+            cursor: pointer;
+            color: var(--charcoal);
+        }
+        .nav-toggle svg {
+            width: 28px;
+            height: 28px;
+            display: block;
+        }
+        .nav-toggle .nav-toggle-close { display: none !important; }
+        .nav-toggle[aria-expanded="true"] .nav-toggle-icon { display: none !important; }
+        .nav-toggle[aria-expanded="true"] .nav-toggle-close { display: block !important; }
+        @media (max-width: 768px) {
+            .nav-toggle { display: block; }
+            .nav-links {
+                position: fixed;
+                top: 0;
+                right: 0;
+                bottom: 0;
+                width: 260px;
+                background: var(--cream);
+                flex-direction: column;
+                justify-content: flex-start;
+                gap: 24px;
+                padding: 96px 32px 32px;
+                box-shadow: -4px 0 24px rgba(0,0,0,0.1);
+                transform: translateX(100%);
+                transition: transform 0.3s ease;
+                z-index: 1001;
+            }
+            .nav-links.is-open { transform: translateX(0); }
+            .nav-links a { font-size: 1.1rem; }
+            .nav-backdrop {
+                display: block;
+                position: fixed;
+                inset: 0;
+                background: rgba(0,0,0,0.3);
+                z-index: 1000;
+                opacity: 0;
+                pointer-events: none;
+                transition: opacity 0.3s;
+            }
+            .nav-backdrop.is-open {
+                opacity: 1;
+                pointer-events: auto;
+            }
+        }
+        @media (min-width: 769px) {
+            .nav-links { display: flex !important; }
+            .nav-backdrop { display: none !important; }
+        }
 
         /* Hero */
         .hero {
@@ -355,17 +412,22 @@
 <body>
 
 <nav class="nav">
-    <a href="#" class="nav-logo">
+    <a href="#hero" class="nav-logo">
         <img src="https://static.wixstatic.com/media/373ad7_a11f62eabcb942cca373ea97ecf2b4b8~mv2.png/v1/fill/w_180,h_40,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/Hey%20Yogurt%20(1).png" alt="Hey Yogurt">
         <span>Ridgewood</span>
     </a>
-    <div class="nav-links">
-        <a href="#hero">Home</a>
-        <a href="#menu">Menu</a>
-        <a href="#reviews">Reviews</a>
-        <a href="#location">Location</a>
-    </div>
+    <button type="button" class="nav-toggle" aria-label="Open menu" aria-expanded="false">
+        <svg class="nav-toggle-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+        <svg class="nav-toggle-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg>
+    </button>
 </nav>
+<div class="nav-backdrop" id="navBackdrop" aria-hidden="true"></div>
+<div class="nav-links" id="navLinks">
+    <a href="#hero">Home</a>
+    <a href="#menu">Menu</a>
+    <a href="#reviews">Reviews</a>
+    <a href="#location">Location</a>
+</div>
 
 <section id="hero" class="hero">
     <div class="hero-inner">
@@ -455,6 +517,35 @@
     © 2026 Hey Yogurt Ridgewood
 </footer>
 
+<script>
+(function() {
+    var toggle = document.querySelector('.nav-toggle');
+    var links = document.getElementById('navLinks');
+    var backdrop = document.getElementById('navBackdrop');
+    if (!toggle || !links) return;
+    function closeMenu() {
+        links.classList.remove('is-open');
+        if (backdrop) backdrop.classList.remove('is-open');
+        toggle.setAttribute('aria-expanded', 'false');
+        toggle.setAttribute('aria-label', 'Open menu');
+        if (backdrop) backdrop.setAttribute('aria-hidden', 'true');
+    }
+    function openMenu() {
+        links.classList.add('is-open');
+        if (backdrop) { backdrop.classList.add('is-open'); backdrop.setAttribute('aria-hidden', 'false'); }
+        toggle.setAttribute('aria-expanded', 'true');
+        toggle.setAttribute('aria-label', 'Close menu');
+    }
+    toggle.addEventListener('click', function() {
+        var isOpen = links.classList.contains('is-open');
+        if (isOpen) closeMenu(); else openMenu();
+    });
+    if (backdrop) backdrop.addEventListener('click', closeMenu);
+    links.querySelectorAll('a[href^="#"]').forEach(function(a) {
+        a.addEventListener('click', closeMenu);
+    });
+})();
+</script>
 <script>
 (function(d, s, id) {
     var js;
